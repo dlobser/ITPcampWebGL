@@ -1,0 +1,45 @@
+outline:
+
+intro
+	me
+		post production animation
+		dlobser.com
+		idlehands.tv
+		wegotogether.info/tree
+		NO web background
+	how I got into 3D on the web and why I like it
+	what kinds of things am I using it for
+		3D printing
+		music vis
+		games
+
+What is webgl
+	Like opengl but with limitations
+
+what is three.js
+	who when where how
+	Chrome is an excellent development environment
+
+hello world scene
+	scene
+	camera
+	objects
+		mesh,geometry,materials
+	init()
+	render()
+	navigating hierarchy
+
+hello .obj scene
+	setting up a local server
+	what is an obj file
+		show geometry
+		faces
+		vertices
+		etc
+
+switch to TREE.ide
+	built in variables
+		time,count,omouseX,mouseX,rmouseX, etc etc
+	GUI - sliders and ace
+	exporting to an obj
+

@@ -1,0 +1,72 @@
+<html>
+  <head>
+
+    <title>helloTHREE</title>
+
+    <body style="background-image:url('http://media-cache-ec0.pinimg.com/736x/a6/0e/43/a60e4346d36a0890eb7db82fc0087c4d.jpg');">
+
+		<div id="container"></div>
+
+		<script src="js/three.min.js"></script>
+
+		<script>
+	
+			var camera, scene, renderer;
+
+			var sphere, torus, group;
+
+			var frameCount = 0;
+
+			init();
+			animate();
+			
+			function init() {
+
+				camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 10000 );
+				camera.position.z = 100;
+
+				scene = new THREE.Scene();
+
+				group = new THREE.Object3D();
+
+				sphere = new THREE.Mesh(new THREE.SphereGeometry(10,50,50),new THREE.MeshLambertMaterial());
+				group.add(sphere);
+
+				torus = new THREE.Mesh(new THREE.TorusGeometry(15,5,50,50),new THREE.MeshLambertMaterial({color:0xff99cc}));
+				group.add(torus);
+
+				scene.add(group);
+
+				light = new THREE.DirectionalLight( 0xdddddd );
+				light.position.set( 1, 1, 1 ); scene.add( light );
+
+				light = new THREE.AmbientLight( 0x112233); scene.add( light );
+
+				renderer = new THREE.WebGLRenderer( { clearColor: 0x000000, antialias: true } );
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				container = document.getElementById( 'container' );
+				container.appendChild( renderer.domElement );
+
+			}
+
+			function animate() {
+
+				render();
+				requestAnimationFrame( animate );
+
+				torus.rotation.y = frameCount/2;
+				group.rotation.y = frameCount*2;
+
+				frameCount+=.02;
+
+				sphere.position.x = (Math.sin((Math.PI/2)+frameCount*.5)*35);
+			}
+			
+			function render() {
+				renderer.render( scene, camera );
+			}
+		
+		</script>
+	</body>
+</html>
